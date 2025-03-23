@@ -23,155 +23,7 @@
     <link rel="stylesheet" href="assets/css/main.css"> 
 
   </head>
-  <style>
 
-/* Popup container */
-.popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Darker background for better visibility */
-    backdrop-filter: blur(10px);
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; /* Ensure it's on top of everything */
-    animation: fadeIn 0.5s ease;
-}
-
-/* Animated background */
-.particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(225, 48, 108, 0.1), rgba(193, 53, 132, 0.05), rgba(131, 58, 180, 0.05));
-    z-index: -1;
-    animation: moveStars 10s linear infinite;
-}
-
-@keyframes moveStars {
-    0% { transform: translateY(0) translateX(0); }
-    50% { transform: translateY(-20px) translateX(20px); }
-    100% { transform: translateY(0) translateX(0); }
-}
-
-/* Popup content */
-.popup-content {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    transform: scale(0.9);
-    opacity: 0;
-    animation: scaleUp 0.5s ease 0.3s forwards;
-    max-width: 400px;
-    width: 90%;
-    position: relative;
-    overflow: hidden;
-    z-index: 10000; /* Ensure content is above the particles */
-}
-
-/* Instagram logo */
-.instagram-logo {
-    margin-bottom: 20px;
-    animation: bounce 1.5s infinite;
-}
-
-.instagram-logo i {
-    font-size: 48px;
-    color: #e1306c;
-}
-
-/* Popup header */
-.popup-header h2 {
-    margin: 0 0 15px;
-    font-size: 24px;
-    font-weight: 600;
-    color: #1d1d1f;
-    animation: slideIn 0.5s ease 0.5s forwards;
-    opacity: 0;
-    transform: translateY(-20px);
-}
-
-.popup-header p {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 400;
-    color: #6e6e73;
-    line-height: 1.5;
-    animation: slideIn 0.5s ease 0.7s forwards;
-    opacity: 0;
-    transform: translateY(-20px);
-}
-
-/* Countdown timer */
-.countdown-timer {
-    margin: 15px 0;
-    font-size: 14px;
-    color: #6e6e73;
-    animation: slideIn 0.5s ease 0.9s forwards;
-    opacity: 0;
-    transform: translateY(-20px);
-}
-
-/* Follow button */
-.popup-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 24px;
-    background: linear-gradient(135deg, #e1306c, #c13584);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 500;
-    text-transform: uppercase;
-    text-decoration: none;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 6px rgba(225, 48, 108, 0.2);
-    animation: slideIn 0.5s ease 0.9s forwards;
-    opacity: 0;
-    transform: translateY(-20px);
-}
-
-.popup-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(225, 48, 108, 0.3);
-}
-
-.popup-button:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 6px rgba(225, 48, 108, 0.2);
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes scaleUp {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-@keyframes slideIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-
-}
-</style>
 <!-- style for scond popup start -->
 
 <style>
@@ -334,34 +186,9 @@
     </div>
     <!-- Cursor end -->
 
-    <!-- back to top start -->
-    <div class="progress-wrap">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-           <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-        </svg>
-    </div>
-    <!-- back to top end -->
   
     <!-- sidebar-information-area-start -->
      <section>
-         
-<!-- Popup  1 -->
-<div id="popup" class="popup">
-    <div class="particles"></div>
-    <div class="popup-content">
-        <div class="popup-header">
-            <div class="instagram-logo">
-                <i class="fab fa-instagram"></i>
-            </div>
-            <h2>Follow <span class="instagram-account">Eduwell</span></h2>
-            <p>Restez à jour avec nos dernières publications et stories. Suivez-nous dès maintenant !</p>
-            <div class="countdown-timer">
-                 <span id="countdown">7</span> secondes...
-            </div>
-        </div>
-        <a href="https://www.instagram.com/eduwell" target="_blank" class="popup-button">Follow on Instagram</a>
-    </div>
-</div>
 
 <!-- Popup  2 -->
 
@@ -404,7 +231,7 @@
         </div>
     </div>
 </section>
-    <div class="offcanvas-overlay"></div>
+<div class="offcanvas-overlay"></div>
     <!-- sidebar-information-area-end -->
 
     <div class="has-smooth" id="has_smooth"></div>
@@ -878,52 +705,7 @@
     <!-- Popup  1-->
 
 
-    <script>document.addEventListener('DOMContentLoaded', function () {
-        let countdownTime = 5; // Time in seconds
-        const countdownElement = document.getElementById('countdown');
-    
-        // Show popup after 5 seconds
-        setTimeout(function () {
-            const popup = document.getElementById('popup');
-            popup.style.display = 'flex';
-    
-            // Add a class to trigger animations
-            setTimeout(() => {
-                popup.classList.add('popup-visible');
-            }, 100);
-    
-            // Start the countdown timer
-            const countdownInterval = setInterval(() => {
-                countdownTime--;
-                countdownElement.textContent = countdownTime;
-    
-                if (countdownTime <= 0) {
-                    clearInterval(countdownInterval);
-                    popup.style.display = 'none';
-                }
-            }, 1000); // Update every second
-        }, 7000); // 5 seconds
-    
-        // Add hover effect to the button
-        const button = document.querySelector('.popup-button');
-        button.addEventListener('mouseenter', () => {
-            button.style.transform = 'translateY(-2px)';
-            button.style.boxShadow = '0 6px 8px rgba(225, 48, 108, 0.3)';
-        });
-    
-        button.addEventListener('mouseleave', () => {
-            button.style.transform = 'translateY(0)';
-            button.style.boxShadow = '0 4px 6px rgba(225, 48, 108, 0.2)';
-        });
-    
-        // Add click effect to the button
-        button.addEventListener('click', () => {
-            button.style.transform = 'translateY(0)';
-            button.style.boxShadow = '0 4px 6px rgba(225, 48, 108, 0.2)';
-        });
-    });
-    </script>
-
+        
     <!-- Popup  2-->
 
     <script>
@@ -997,6 +779,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+    </script>
+    <script>
+document.addEventListener('keyup', function (e) {
+    if (e.key === 'PrintScreen') {
+        alert('Screenshots are not allowed on this website.');
+    }
+});
+    </script>
+    <script>
+        document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'hidden') {
+        alert('Screenshots are not allowed on this website.');
+    }
+});
+    </script>
+    <script>
+        <div id="overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; pointer-events: none;"></div>
     </script>
 
 <!-- jQuery Js -->
