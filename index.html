@@ -23,7 +23,304 @@
     <link rel="stylesheet" href="assets/css/main.css"> 
 
   </head>
+  <style>
+
+/* Popup container */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darker background for better visibility */
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it's on top of everything */
+    animation: fadeIn 0.5s ease;
+}
+
+/* Animated background */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(225, 48, 108, 0.1), rgba(193, 53, 132, 0.05), rgba(131, 58, 180, 0.05));
+    z-index: -1;
+    animation: moveStars 10s linear infinite;
+}
+
+@keyframes moveStars {
+    0% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-20px) translateX(20px); }
+    100% { transform: translateY(0) translateX(0); }
+}
+
+/* Popup content */
+.popup-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    opacity: 0;
+    animation: scaleUp 0.5s ease 0.3s forwards;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    overflow: hidden;
+    z-index: 10000; /* Ensure content is above the particles */
+}
+
+/* Instagram logo */
+.instagram-logo {
+    margin-bottom: 20px;
+    animation: bounce 1.5s infinite;
+}
+
+.instagram-logo i {
+    font-size: 48px;
+    color: #e1306c;
+}
+
+/* Popup header */
+.popup-header h2 {
+    margin: 0 0 15px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1d1d1f;
+    animation: slideIn 0.5s ease 0.5s forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.popup-header p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: #6e6e73;
+    line-height: 1.5;
+    animation: slideIn 0.5s ease 0.7s forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* Countdown timer */
+.countdown-timer {
+    margin: 15px 0;
+    font-size: 14px;
+    color: #6e6e73;
+    animation: slideIn 0.5s ease 0.9s forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* Follow button */
+.popup-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #e1306c, #c13584);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(225, 48, 108, 0.2);
+    animation: slideIn 0.5s ease 0.9s forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.popup-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(225, 48, 108, 0.3);
+}
+
+.popup-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(225, 48, 108, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+
+}
+</style>
+<!-- style for scond popup start -->
+
+<style>
+/* Maintenance Popup container */
+.maintenance-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it's on top of everything */
+    animation: fadeIn 0.5s ease;
+}
+
+/* Animated background */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(225, 48, 108, 0.1), rgba(193, 53, 132, 0.05), rgba(131, 58, 180, 0.05));
+    z-index: -1;
+    animation: moveStars 10s linear infinite;
+}
+
+@keyframes moveStars {
+    0% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-20px) translateX(20px); }
+    100% { transform: translateY(0) translateX(0); }
+}
+
+/* Maintenance Popup content */
+.maintenance-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    opacity: 0;
+    animation: scaleUp 0.5s ease 0.3s forwards;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    overflow: hidden;
+    z-index: 10000; /* Ensure content is above the particles */
+}
+
+/* Maintenance Popup header */
+.maintenance-header h2 {
+    margin: 0 0 15px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1d1d1f;
+    animation: slideIn 0.5s ease 0.5s forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.maintenance-header .instagram-logo {
+    margin-bottom: 20px;
+    animation: bounce 1.5s infinite;
+}
+
+.maintenance-header .instagram-logo i {
+    font-size: 48px;
+    color: #e1306c;
+}
+
+/* Maintenance Popup body */
+.maintenance-body p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: #6e6e73;
+    line-height: 1.5;
+    animation: slideIn 0.5s ease 0.7s forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* Maintenance Popup footer */
+.maintenance-footer {
+    margin-top: 20px;
+}
+
+/* Maintenance Popup button */
+.maintenance-button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #e1306c, #c13584);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(225, 48, 108, 0.2);
+    animation: slideIn 0.5s ease 0.9s forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.maintenance-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(225, 48, 108, 0.3);
+}
+
+.maintenance-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(225, 48, 108, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+} 
+
+
+
+
+</style>
+
+<!-- style for scond popup end -->
+ 
   <body>
+    
 
     <!-- Cursor start -->
     <div class="rts-cursor cursor-outer" data-default="yes" data-link="yes" data-slider="no">
@@ -47,6 +344,46 @@
   
     <!-- sidebar-information-area-start -->
      <section>
+         
+<!-- Popup  1 -->
+<div id="popup" class="popup">
+    <div class="particles"></div>
+    <div class="popup-content">
+        <div class="popup-header">
+            <div class="instagram-logo">
+                <i class="fab fa-instagram"></i>
+            </div>
+            <h2>Follow <span class="instagram-account">Eduwell</span></h2>
+            <p>Restez à jour avec nos dernières publications et stories. Suivez-nous dès maintenant !</p>
+            <div class="countdown-timer">
+                 <span id="countdown">7</span> secondes...
+            </div>
+        </div>
+        <a href="https://www.instagram.com/eduwell" target="_blank" class="popup-button">Follow on Instagram</a>
+    </div>
+</div>
+
+<!-- Popup  2 -->
+
+
+<!-- Maintenance Popup -->
+<div id="maintenance-popup" class="maintenance-popup">
+    <div class="particles"></div>
+    <div class="maintenance-content">
+        <div class="maintenance-header">
+           
+            <h2>⚠️ Website Under Maintenance</h2>
+        </div>
+        <div class="maintenance-body">
+            <p>We apologize for the inconvenience, but our website is currently not working. Our team is working hard to fix the issue. Please check back later.</p>
+        </div>
+       
+    </div>
+</div>
+
+     </section>
+     <section>
+      
     <div class="sidebar-info side-info">
         <div class="sidebar-logo-wrapper mb-25">
             <div class="row align-items-center">
@@ -538,23 +875,145 @@
             </div>
         </div>
     </div>
+    <!-- Popup  1-->
 
 
-    <!-- jQuery Js -->
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script> 
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <script src="assets/js/meanmenu.min.js"></script>
-    <script src="assets/js/gsap.min.js"></script>
-    <!-- <script src="assets/js/ScrollSmoother.min.js"></script> -->
-    <script src="assets/js/ScrollTrigger.min.js"></script>
-    <script src="assets/js/TweenMax.min.js"></script>
-    <script src="assets/js/SplitText.min.js"></script>
-    <script src="assets/js/chroma.min.js"></script>
-    <script src="assets/js/magnific-popup.min.js"></script>
-    <script src="assets/js/nice-select.min.js"></script>
-    <script src="assets/js/backtotop.js"></script>
-    <script src="assets/js/main.js"></script>
- 
+    <script>document.addEventListener('DOMContentLoaded', function () {
+        let countdownTime = 5; // Time in seconds
+        const countdownElement = document.getElementById('countdown');
+    
+        // Show popup after 5 seconds
+        setTimeout(function () {
+            const popup = document.getElementById('popup');
+            popup.style.display = 'flex';
+    
+            // Add a class to trigger animations
+            setTimeout(() => {
+                popup.classList.add('popup-visible');
+            }, 100);
+    
+            // Start the countdown timer
+            const countdownInterval = setInterval(() => {
+                countdownTime--;
+                countdownElement.textContent = countdownTime;
+    
+                if (countdownTime <= 0) {
+                    clearInterval(countdownInterval);
+                    popup.style.display = 'none';
+                }
+            }, 1000); // Update every second
+        }, 7000); // 5 seconds
+    
+        // Add hover effect to the button
+        const button = document.querySelector('.popup-button');
+        button.addEventListener('mouseenter', () => {
+            button.style.transform = 'translateY(-2px)';
+            button.style.boxShadow = '0 6px 8px rgba(225, 48, 108, 0.3)';
+        });
+    
+        button.addEventListener('mouseleave', () => {
+            button.style.transform = 'translateY(0)';
+            button.style.boxShadow = '0 4px 6px rgba(225, 48, 108, 0.2)';
+        });
+    
+        // Add click effect to the button
+        button.addEventListener('click', () => {
+            button.style.transform = 'translateY(0)';
+            button.style.boxShadow = '0 4px 6px rgba(225, 48, 108, 0.2)';
+        });
+    });
+    </script>
+
+    <!-- Popup  2-->
+
+    <script>
+
+
+   // Show Maintenance Popup after 15 seconds
+   document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+        const maintenancePopup = document.getElementById('maintenance-popup');
+        maintenancePopup.style.display = 'flex'; // Show the popup
+
+        // Add a class to trigger animations
+        setTimeout(() => {
+            maintenancePopup.classList.add('popup-visible');
+        }, 100);
+
+        // Close Maintenance Popup when the button is clicked
+        const closeButton = document.getElementById('close-maintenance-popup');
+        closeButton.addEventListener('click', function () {
+            maintenancePopup.style.display = 'none'; // Hide the popup
+        });
+    }, 30000); // 15 seconds
+});
+
+    </script>
+    <script>
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Disable right-click (prevents saving images or accessing context menu)
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+
+    // Disable text selection
+    document.addEventListener('selectstart', function (e) {
+        e.preventDefault();
+    });
+
+    // Disable keyboard shortcuts (Ctrl+C, Ctrl+U, Ctrl+S, etc.)
+    document.addEventListener('keydown', function (e) {
+        // Disable Ctrl+C (Copy)
+        if (e.ctrlKey && e.key === 'c') {
+            e.preventDefault();
+        }
+        // Disable Ctrl+U (View Source)
+        if (e.ctrlKey && e.key === 'u') {
+            e.preventDefault();
+        }
+        // Disable Ctrl+S (Save Page)
+        if (e.ctrlKey && e.key === 's') {
+            e.preventDefault();
+        }
+        // Disable Print Screen key
+        if (e.key === 'PrintScreen') {
+            e.preventDefault();
+        }
+    });
+
+    // Disable dragging images
+    document.addEventListener('dragstart', function (e) {
+        if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+        }
+    });
+
+    // Disable taking screenshots using browser extensions or tools
+    document.addEventListener('keyup', function (e) {
+        if (e.key === 'PrintScreen') {
+            alert('Screenshots are disabled on this website.');
+        }
+    });
+});
+    </script>
+
+<!-- jQuery Js -->
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script> 
+<script src="assets/js/swiper-bundle.min.js"></script>
+<script src="assets/js/meanmenu.min.js"></script>
+<script src="assets/js/gsap.min.js"></script>
+<!-- <script src="assets/js/ScrollSmoother.min.js"></script> -->
+<script src="assets/js/ScrollTrigger.min.js"></script>
+<script src="assets/js/TweenMax.min.js"></script>
+<script src="assets/js/SplitText.min.js"></script>
+<script src="assets/js/chroma.min.js"></script>
+<script src="assets/js/magnific-popup.min.js"></script>
+<script src="assets/js/nice-select.min.js"></script>
+<script src="assets/js/backtotop.js"></script>
+<script src="assets/js/main.js"></script>
+
   </body>
 </html>
